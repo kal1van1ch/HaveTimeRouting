@@ -5,8 +5,8 @@ import com.kal1van1ch.havetimerouting.model.RouteProfile;
 import java.util.List;
 
 public record ResponseRouteDto(
-        Double routeDistance,
-        Long routeTime,
+        Double routeDistanceMeters,
+        Long routeTimeSeconds,
         RouteProfile profile,
         List<RoutePointDto> points
 ){}

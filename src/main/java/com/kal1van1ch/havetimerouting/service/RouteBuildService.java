@@ -9,6 +9,8 @@ import com.kal1van1ch.havetimerouting.exception.RouteBuildErrorException;
 import com.kal1van1ch.havetimerouting.model.dto.RequestRouteDto;
 import com.kal1van1ch.havetimerouting.model.dto.ResponseRouteDto;
 import com.kal1van1ch.havetimerouting.model.dto.RoutePointDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
 public class RouteBuildService {
 
     private final GraphHopper graphHopper;
+    private static final Logger logger = LoggerFactory.getLogger(RouteBuildService.class);
 
     public RouteBuildService(
             GraphHopper graphHopper
@@ -56,6 +59,20 @@ public class RouteBuildService {
                     )
             );
         }
+
+        logger.info(
+                """
+                \nSuccessful route building:
+                routeDistanceMeters: {}
+                routeTimeSeconds: {}
+                profile: {}
+                points count: {}\n
+                """,
+                responsePath.getDistance(),
+                responsePath.getTime() / 1000,
+                requestRouteDto.profile(),
+                points.size()
+        );
 
         return new ResponseRouteDto(
                 responsePath.getDistance(),
