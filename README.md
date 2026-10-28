@@ -1,4 +1,4 @@
-# HaveTimeRoute
+# HaveTimeRouting
 `REST API` для построения кратчайших по расстоянию маршрутов по дорожной сети `OpenStreetMap`.
 
 ## Стек

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kal1van1ch</groupId>
-	<artifactId>havetimeroute</artifactId>
+	<artifactId>havetimerouting</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
